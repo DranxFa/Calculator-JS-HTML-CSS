@@ -1,36 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calculator</title>
+  <meta name="description" content="Calculadora web moderna estilo Google/iOS con pantalla de dos líneas, rápida y accesible.">
+  <title>Calculadora</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="calculator">
-    <div id="display">0</div>
-    <button id="delete=all"><p>AC</p></button>
-    <button id="delete"><p>→</p></button>
-    <button><p>/</p></button>
-    <button><p>x</p></button>
-    <button><p>7</p></button>
-    <button><p>8</p></button>
-    <button><p>9</p></button>
-    <button><p>-</p></button>
-    <button><p>6</p></button>
-    <button><p>5</p></button>
-    <button><p>4</p></button>
-    <button><p>+</p></button>
-    <button><p>1</p></button>
-    <button><p>2</p></button>
-    <button><p>3</p></button>
-    <button id="equal"><p>=</p></button>
-    <button id="zero"><p>0</p></button>
-    <button><p>.</p></button>
-  </div>
+  <main id="calculator" role="region" aria-label="Calculadora">
+    <div id="display-container">
+      <div id="history" aria-hidden="true"></div>
+      <output id="display" aria-live="polite">0</output>
+    </div>
+    
+    <button id="clear" class="btn-function" aria-label="Limpiar todo (AC)" data-action="clear">AC</button>
+    <button id="delete" class="btn-function" aria-label="Borrar último dígito" data-action="delete">⌫</button>
+    <button class="btn-operator" aria-label="Dividir" data-action="operator" data-value="/">÷</button>
+    <button class="btn-operator" aria-label="Multiplicar" data-action="operator" data-value="*">×</button>
+    
+    <button class="btn-number" data-action="number" data-value="7">7</button>
+    <button class="btn-number" data-action="number" data-value="8">8</button>
+    <button class="btn-number" data-action="number" data-value="9">9</button>
+    <button class="btn-operator" aria-label="Restar" data-action="operator" data-value="-">−</button>
+    
+    <button class="btn-number" data-action="number" data-value="4">4</button>
+    <button class="btn-number" data-action="number" data-value="5">5</button>
+    <button class="btn-number" data-action="number" data-value="6">6</button>
+    <button class="btn-operator" aria-label="Sumar" data-action="operator" data-value="+">+</button>
+    
+    <button class="btn-number" data-action="number" data-value="1">1</button>
+    <button class="btn-number" data-action="number" data-value="2">2</button>
+    <button class="btn-number" data-action="number" data-value="3">3</button>
+    <button id="equal" class="btn-equal" aria-label="Calcular resultado" data-action="calculate">=</button>
+    
+    <button id="zero" class="btn-number" data-action="number" data-value="0">0</button>
+    <button class="btn-decimal" aria-label="Punto decimal" data-action="decimal" data-value=".">.</button>
+  </main>
   <script src="app.js"></script>
 </body>
 </html>
